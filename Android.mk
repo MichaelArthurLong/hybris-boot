@@ -77,6 +77,12 @@ endif
 
 BB_STATIC := $(PRODUCT_OUT)/utilities/busybox
 
+ifeq ($(strip $(TARGET_BOOTLOADER_IS_2ND)),true)
+  INSTALLED_2NDBOOTLOADER_TARGET := $(PRODUCT_OUT)/2ndbootloader
+else
+  INSTALLED_2NDBOOTLOADER_TARGET :=
+endif
+
 ifneq ($(strip $(TARGET_NO_KERNEL)),true)
   INSTALLED_KERNEL_TARGET := $(PRODUCT_OUT)/kernel
 else
